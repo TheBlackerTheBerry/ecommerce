@@ -9,7 +9,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /Users/pablonascimento/Projects/ecommerce/infrastructure/volume/storage/
+    path: volume/storage/
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
