@@ -1,0 +1,54 @@
+replicaCount: 1
+
+image:
+  repository: catalog-api
+  pullPolicy: Never
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+serviceAccount:
+  create: true
+  annotations: {}
+  name: "catalog-account-service"
+
+ingress:
+  enabled: false
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 9001
+
+
+istio:
+  gatewayName: "catalog-gateway"
+  serviceName: "catalog-virtual-service"
+  host: "ecommerce.piripak.cc"
+  destination: "catalog"
+  port: 9001
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 512Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+  
+nodeSelector: {}
+tolerations: []
+affinity: {}

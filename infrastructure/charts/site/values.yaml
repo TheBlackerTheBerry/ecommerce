@@ -1,0 +1,53 @@
+replicaCount: 1
+
+image:
+  repository: tbtb-site
+  pullPolicy: Never
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+serviceAccount:
+  create: true
+  annotations: {}
+  name: "website-account-service"
+
+ingress:
+  enabled: false
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 3000
+
+
+istio:
+  gatewayName: "website-gateway"
+  serviceName: "website-virtual-service"
+  host: "tbtb.piripak.cc"
+  port: 3000
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 512Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+  
+nodeSelector: {}
+tolerations: []
+affinity: {}

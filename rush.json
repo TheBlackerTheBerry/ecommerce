@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "rushVersion": "5.98.0",
+  "pnpmVersion": "6.7.1",
+  "nodeSupportedVersionRange": ">=16.16.0",
+  "projectFolderMinDepth": 2,
+  "projectFolderMaxDepth": 4,
+  "repository": {
+  },
+  "eventHooks": {
+    "preRushInstall": [],
+    "postRushInstall": [],
+    "preRushBuild": [],
+    "postRushBuild": []
+  },
+  "variants": [
+  ],
+  "projects": [{
+    "packageName": "@ecommerce-api/catalog",
+    "projectFolder": "apis/catalog",
+    "tags": [ "backend-team" ]
+  },{
+    "packageName": "@ecommerce-apps/frontend",
+    "projectFolder": "apps/frontend",
+    "tags": [ "backend-team" ]
+  }]
+}
