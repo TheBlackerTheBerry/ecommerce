@@ -8,6 +8,8 @@ Describing more about how this project works, we have four important topics to h
 
 ### Microservices
 
+Each microservice will handle your data. And every microsservice will have a replication event journal, that stores all the events that was processed. If any event fails to process, we can reply it after solve the bug.
+
 ![Architecture of each microsservice](./docs/microservice.jpeg "Microservices Diagram")
 
 
